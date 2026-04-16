@@ -1,5 +1,3 @@
-# 10 % 4 = 2 - стан повітря
-
 import enum
 from sqlalchemy import Column, Integer, String, Float, Date, Time, Enum
 from sqlalchemy.orm import declarative_base
@@ -22,17 +20,8 @@ class Weather(Base):
     wind_degree  = Column(Integer,     nullable=True)
     wind_kph     = Column(Float,       nullable=True)
     wind_dir     = Column(
-        Enum(WindDirection, name="wind_direction_enum"),
+        Enum(WindDirection, name="wind_direction_enum", native_enum=False),
         nullable=True
     )                                                    
     last_updated = Column(Date,        nullable=False)
     sunrise      = Column(Time,        nullable=True)
-
-    air_co          = Column(Float,   nullable=True)
-    air_no2         = Column(Float,   nullable=True)
-    air_ozone       = Column(Float,   nullable=True)
-    air_so2         = Column(Float,   nullable=True)
-    air_pm25        = Column(Float,   nullable=True)
-    air_pm10        = Column(Float,   nullable=True)
-    air_epa_index   = Column(Integer, nullable=True)
-    air_defra_index = Column(Integer, nullable=True)
