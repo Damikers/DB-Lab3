@@ -1,10 +1,8 @@
-# migrate_db.py
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from config import POSTGRES_URL, MYSQL_URL
 from models.weather import Base, Weather
 from models.air_quality import AirQuality
-
 
 def migrate_postgres_to_mysql():
     print("Починаємо міграцію")
@@ -56,7 +54,6 @@ def migrate_postgres_to_mysql():
     pg_s.close()
     mysql_s.close()
     print("Міграція завершена. Обидві БД синхронізовані.")
-
 
 if __name__ == "__main__":
     migrate_postgres_to_mysql()
